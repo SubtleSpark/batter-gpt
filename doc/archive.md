@@ -14,8 +14,10 @@ flowchart TB
     subgraph a [国内服务器]
         frontend --> n1
     end
+    frontend -.内置代理.-> bs1
     n1 --> bs2
     n1 --> bs1
+    frontend -.内置代理.-> bs2
     bs2 -- 通过改 base url 直接走国外nginx代理 --> n2
     
     subgraph 国外服务器
